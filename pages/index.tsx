@@ -52,7 +52,7 @@ export default function Home() {
               />
             </Link>
             <Link href="/" className={utilStyles.boldText}>
-              first post
+              first post_
             </Link>
             <br />
             <small className={utilStyles.lightText}>2022/01/09</small>
