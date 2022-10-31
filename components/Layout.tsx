@@ -3,7 +3,7 @@ import Head from "next/head";
 import styles from "./layout.module.css";
 import utilStyles from "../styles/utils.module.css";
 
-const Layout = (children: any) => {
+const Layout = ({ children, home }: any) => {
   const name: string = "shutootaki";
 
   return (

@@ -1,6 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import styles from "../styles/Home.module.css";
@@ -12,13 +10,69 @@ export default function Home() {
       <section className={utilStyles.headingMd}>
         <p>welcome to my blog</p>
       </section>
-      <div>
-        <article>
-          <Link href="/">
-            <img src="/images/thumbnail01.jpg" alt="article1" />
-          </Link>
-        </article>
-      </div>
+
+      <section className={utilStyles.headingMd}>
+        <h2>📝takiblog</h2>
+
+        <div className={styles.grid}>
+          <article>
+            <Link href="/">
+              <img
+                src="/images/thumbnail01.jpg"
+                alt="article1"
+                className={`${styles.thumbnailImage}`}
+              />
+            </Link>
+            <Link href="/" className={utilStyles.boldText}>
+              first post
+            </Link>
+            <br />
+            <small className={utilStyles.lightText}>2022/01/09</small>
+          </article>
+          <article>
+            <Link href="/">
+              <img
+                src="/images/thumbnail01.jpg"
+                alt="article1"
+                className={`${styles.thumbnailImage}`}
+              />
+            </Link>
+            <Link href="/" className={utilStyles.boldText}>
+              first post
+            </Link>
+            <br />
+            <small className={utilStyles.lightText}>2022/01/09</small>
+          </article>
+          <article>
+            <Link href="/">
+              <img
+                src="/images/thumbnail01.jpg"
+                alt="article1"
+                className={styles.thumbnailImage}
+              />
+            </Link>
+            <Link href="/" className={utilStyles.boldText}>
+              first post
+            </Link>
+            <br />
+            <small className={utilStyles.lightText}>2022/01/09</small>
+          </article>
+          <article>
+            <Link href="/">
+              <img
+                src="/images/thumbnail01.jpg"
+                alt="article1"
+                className={`${styles.thumbnailImage}`}
+              />
+            </Link>
+            <Link href="/" className={utilStyles.boldText}>
+              first post
+            </Link>
+            <br />
+            <small className={utilStyles.lightText}>2022/01/09</small>
+          </article>
+        </div>
+      </section>
     </Layout>
   );
 }
