@@ -1,10 +1,37 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import Layout from "../components/Layout";
+import { getPostsData } from "../lib/posts";
 import styles from "../styles/Home.module.css";
 import utilStyles from "../styles/utils.module.css";
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const allPostsData = getPostsData();
+
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+};
+
+type Post = {
+  id: string;
+  title: string;
+  date: string;
+  thumbnail: string;
+  index: number;
+};
+
+type AllPosts = {
+  id: string;
+  title: string;
+  date: string;
+  thumbnail: string;
+}[];
+
+export default function Home({ allPostsData }: any) {
+  console.log(allPostsData);
   return (
     <Layout>
       <section className={utilStyles.headingMd}>
@@ -15,62 +42,22 @@ export default function Home() {
         <h2>📝takiblog</h2>
 
         <div className={styles.grid}>
-          <article>
-            <Link href="/">
-              <img
-                src="/images/thumbnail01.jpg"
-                alt="article1"
-                className={`${styles.thumbnailImage}`}
-              />
-            </Link>
-            <Link href="/" className={utilStyles.boldText}>
-              first post
-            </Link>
-            <br />
-            <small className={utilStyles.lightText}>2022/01/09</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-                src="/images/thumbnail01.jpg"
-                alt="article1"
-                className={`${styles.thumbnailImage}`}
-              />
-            </Link>
-            <Link href="/" className={utilStyles.boldText}>
-              first post
-            </Link>
-            <br />
-            <small className={utilStyles.lightText}>2022/01/09</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-                src="/images/thumbnail01.jpg"
-                alt="article1"
-                className={styles.thumbnailImage}
-              />
-            </Link>
-            <Link href="/" className={utilStyles.boldText}>
-              first post_
-            </Link>
-            <br />
-            <small className={utilStyles.lightText}>2022/01/09</small>
-          </article>
-          <article>
-            <Link href="/">
-              <img
-                src="/images/thumbnail01.jpg"
-                alt="article1"
-                className={`${styles.thumbnailImage}`}
-              />
-            </Link>
-            <Link href="/" className={utilStyles.boldText}>
-              first post
-            </Link>
-            <br />
-            <small className={utilStyles.lightText}>2022/01/09</small>
-          </article>
+          {allPostsData.map(({ id, title, date, thumbnail, index }: Post) => (
+            <article key={id}>
+              <Link href={`/post/${id}`}>
+                <img
+                  src={thumbnail}
+                  alt={`article${index}`}
+                  className={`${styles.thumbnailImage}`}
+                />
+              </Link>
+              <Link href="/" className={utilStyles.boldText}>
+                {title}
+              </Link>
+              <br />
+              <small className={utilStyles.lightText}>{date}</small>
+            </article>
+          ))}
         </div>
       </section>
     </Layout>
