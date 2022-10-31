@@ -21,3 +21,14 @@ export const getPostsData = () => {
   });
   return allPostsData;
 };
+
+export const getAllPostIds = () => {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const IDs = fileNames.map((fileName) => {
+    return {
+      params: {
+        id: fileName.replace(/\.md$/, ""),
+      },
+    };
+  });
+};

@@ -44,7 +44,7 @@ export default function Home({ allPostsData }: any) {
         <div className={styles.grid}>
           {allPostsData.map(({ id, title, date, thumbnail, index }: Post) => (
             <article key={id}>
-              <Link href={`/post/${id}`}>
+              <Link href={`/posts/${id}`}>
                 <img
                   src={thumbnail}
                   alt={`article${index}`}
