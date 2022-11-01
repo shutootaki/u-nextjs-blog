@@ -31,7 +31,7 @@ export default function Home({ allPostsData }: any) {
         <title>Next.js Blog</title>
       </Head>
       <section className={utilStyles.headingMd}>
-        <p>welcome to my blog</p>
+        <p>•̀.̫•́✧welcome to my blog</p>
       </section>
 
       <section className={utilStyles.headingMd}>
