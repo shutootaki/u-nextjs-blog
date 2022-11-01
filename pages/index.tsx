@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Head from "next/head";
 import Link from "next/link";
 import Layout from "../components/Layout";
 import { getPostsData } from "../lib/posts";
@@ -23,16 +24,12 @@ type Post = {
   index: number;
 };
 
-type AllPosts = {
-  id: string;
-  title: string;
-  date: string;
-  thumbnail: string;
-}[];
-
 export default function Home({ allPostsData }: any) {
   return (
-    <Layout>
+    <Layout home>
+      <Head>
+        <title>Next.js Blog</title>
+      </Head>
       <section className={utilStyles.headingMd}>
         <p>welcome to my blog</p>
       </section>
