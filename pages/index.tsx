@@ -31,7 +31,6 @@ type AllPosts = {
 }[];
 
 export default function Home({ allPostsData }: any) {
-  console.log(allPostsData);
   return (
     <Layout>
       <section className={utilStyles.headingMd}>
